@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Page</title>
+    <script src="js/greet.js"></script>    
+    <script >
+    function getSalary(){
+            document.getElementById("sal").innerHTML = document.getElementById("salary").value;
+    }
+        function getTax(){
+          document.getElementById("taxval").innerHTML =   document.getElementById("tax").value;
+        }
+</script>
+</head>
+<body>
+    <h1>My First Web Page</h1>
+    <label for="">FirstName</label>
+    <input type="text" id="fname" placeholder="Type FirstName here">
+    <span id="fnameerror"></span>
+    <br>
+    <label for="">LastName</label>
+    <input type="text" id="lname" placeholder="Type LastName Here">
+    <br>
+    <button id="greet" >Greet</button>
+    <button id="clear">Clear All</button>
+    <h1>Welcome <span id="result">[ResultComeHere]</span></h1>
+    <br>
+    <hr>
+    <input type="text" id="salary" onkeyup="getSalary()"> 
+    Salary is <span id="sal"></span> 
+    Tax <input type="range" id="tax" step="10" max="30" value="10" min="10" onchange="getTax()"> Tax is <span id="taxval"></span>
+</body>
+</html>
