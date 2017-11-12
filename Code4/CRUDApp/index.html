@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CRUD App Demo</title>
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            border-width: 2px;
+            border-color: black;
+            border-style: solid;
+        }
+    </style>
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="js/utils.js"></script>
+    <script src="js/item.js"></script>
+    <script src="js/model.js"></script>
+    <script src="js/controller.js">
+    </script>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Item-CRUD</legend>
+        <table>
+            <tr>
+                <td><label for="itemId">ItemId</label></td>
+                <td><label id="itemId"></label></td>
+            </tr>
+            <tr>
+                <td><label for="itemName">Name</label></td>
+                <td><input type="text" id="itemName" placeholder="Type Item Name"></td>
+            </tr>
+            <tr>
+                <td><label for="itemDesc">Desc</label></td>
+                <td><textarea rows="7" cols="20" placeholder="Type Desc Here" id="itemDesc"></textarea></td>
+            </tr>
+            <tr>
+                <td><label for="price">Desc</label></td>
+                <td><input type="range" min="1" value="1" max="10000" step="50" id="price"></td>
+            </tr>
+            <tr>
+                <td><label for="color">Color</label></td>
+                <td><input type="color" id="color"></td>
+            </tr>
+            <tr>
+                <td><label for="url">URL</label></td>
+                <td><input type="text" placeholder="Type URL Here" id="url" size="50"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td><button id="add">Add</button></td>
+                            <td><button id="delete">Delete</button></td>
+                            <td><button>Search</button></td>
+                            <td><button id="save">Save</button></td>
+                            <td><button id="load">Load</button></td>
+                            <td><button>Sort</button></td>
+                            <td><button>Clear</button></td>
+                            <td><button>Send to Server</button></td>
+                            <td><button>Update</button></td>
+                    </table>
+                    </tr>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <h1>Total Records are :: <span id="total"></span> , Mark Records are :: <span id="mark"></span>And UnMark Records are :: <span id="unmark"></span></h1>
+    <fieldset>
+        <legend>Item Details</legend>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Desc</th>
+                    <th>Price</th>
+                    <th>URL</th>
+                    <th>Color</th>
+                    <th>Operations</th>
+                </tr>
+            </thead>
+            <tbody id="itemlist">
+
+            </tbody>
+
+        </table>
+    </fieldset>
+</body>
+
+</html>
