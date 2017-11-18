@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="ajax.js">
+    </script>
+    <style>
+        .hideit {
+            display: none;
+        }
+        
+        .showit {
+            display: block;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="loader">
+        <img src="images/loader.gif">
+    </div>
+    <select id="newssource">
+		<option value="bbc-news">BBC</option>
+		<option value="cnbc">CNBC</option>
+		<option value="the-hindu">The Hindu</option>
+		<option value="google-news">Google News</option>
+		
+    </select>
+    <button onclick="callNews()">Search News</button>
+    <input type="text" id="search" placeholder="Type To Search">
+    <button onclick="callImages()">Search</button>
+    <fieldset>
+        <legend>Images</legend>
+        <div id="images">
+
+        </div>
+    </fieldset>
+
+</body>
+
+</html>
