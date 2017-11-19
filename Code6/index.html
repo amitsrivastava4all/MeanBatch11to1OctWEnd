@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function doStart() {
+            console.log("Start Call....");
+        }
+
+        function doProcess() {
+            console.log("Long Process Start...")
+            for (let i = 1; i <= 100000; i++) {
+                for (let j = 1; j <= 1000; j++) {
+                    for (let k = 1; k <= 100; k++) {
+
+                    }
+                }
+            }
+            console.log("Long Process End...");
+            //callMeOnceComplete("Complete");
+            return "Complete";
+        }
+
+        function doEnd() {
+            console.log("Do End Call");
+        }
+
+        function work() {
+            doStart();
+            //var t =  doProcess();
+            var promise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log("Long Process Start...")
+                    for (let i = 1; i <= 100000; i++) {
+                        for (let j = 1; j <= 1000; j++) {
+                            for (let k = 1; k <= 100; k++) {
+
+                            }
+                        }
+                    }
+                    console.log("Long Process End...");
+                    //callMeOnceComplete("Complete");
+                    resolve("Complete");
+                    //return "Complete";
+                }, )
+            });
+            //setTimeout(doProcess, 3000);
+            doEnd();
+            // TIme Pass (Alternate Thing)
+            for (let i = 1; i <= 10; i++) {
+                console.log(i * 2);
+            }
+            promise.then((result) => {
+                console.log("Result is ", result);
+                document.querySelector("#msg").innerHTML = "Result is " + result;
+            }).catch((err) => {
+                console.log("ERROR FOUND", err);
+            })
+        }
+
+        var counter = 1;
+
+        function sayHello() {
+            document.querySelector("#msg").innerHTML = "Hello " + counter;
+            counter++;
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="msg"></h1>
+    <button onclick="sayHello()">Say Hello</button>
+    <button onclick="work()">Work</button>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function doSearch() {
+            var search = document.querySelector("#search").value;
+            const url = `http://api.giphy.com/v1/gifs/search?q=${search}&api_key=dc6zaTOxFJmzC`;
+            var promise = fetch(url);
+            promise.then((result) => {
+                result.json().then((data) => {
+                    console.log("DATA IS ", data);
+                    printImages(data);
+
+                });
+
+
+
+            }).catch((err) => {
+                console.log("Error ", err);
+            })
+        }
+
+        function printImages(object) {
+            var div = document.querySelector("#showImages");
+            div.innerHTML = "";
+            var data = object.data;
+            console.log("Length is ", data.length);
+            for (let i = 0; i < data.length; i++) {
+                var currentSrc = data[i].images.preview_gif.url;
+                var img = document.createElement("img");
+                img.src = currentSrc;
+                img.width = img.height = 300;
+                img.alt = "Image is Loading...";
+                div.appendChild(img);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="search" placeholder="Type to Search Any Image">
+    <button onclick="doSearch()">Search</button>
+    <fieldset>
+        <legend>Search Result</legend>
+        <div id="showImages">
+
+        </div>
+    </fieldset>
+</body>
+
+</html>
