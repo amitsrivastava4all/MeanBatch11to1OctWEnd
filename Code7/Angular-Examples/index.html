@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="libs/angular.min.js"></script>
+</head>
+
+<body ng-app>
+    <h1>2 Way data Binding</h1>
+    <input type="text" ng-model="name" placeholder="Type Your Name">
+    <h2>Welcome {{name|uppercase}}</h2>
+    <input type="text" ng-init="pr=0" ng-model="pr" placeholder="Type Price Here">
+    <br>Price is {{pr|currency:'&#8377'}}
+    <br>
+    <input type="text" ng-init="qt=0" ng-model="qt" placeholder="Type Quantity Here">
+    <br>Quantity is {{qt}}
+    <h2 ng-class="{'red':(pr*qt)<2000,'green':(pr*qt)>=2000}">Amount is {{pr*qt}}</h2>
+    <div ng-show="(pr*qt)>=5000">
+        Discount Offers For U
+    </div>
+
+
+    <div>
+        <input type="checkbox" ng-init="changeOrder=false" ng-model="changeOrder"> Change Order {{changeOrder}}
+        <select ng-model="sort">
+            <option>price</option>
+            <option>name</option>
+        </select>
+        <input type="text" placeholder="Type To search in Mobiles" ng-model="search">
+        <h2>Search and Sort Example</h2>
+        <ul ng-init='data={"mobiles":[{"id":1001,"name":"Samsung Mobile","price":30000,"url":"http://c2c.sulekhalive.com/lcproducts/mobiles/images/samsung/album/large/samsung-z3(2).jpg"},{"id":1002,"name":"Apple Mobile","price":40000,"url":"https://4.imimg.com/data4/LY/WP/GLADMIN-8934545/apple-mobiles-500x500.jpg"},{"id":1003,"name":"Lg Mobile","price":20000,"url":"http://www.lg.com/uk/images/mobile-phones/MD05609550/stylus-350.jpg"},{"id":1004,"name":"MI Mobile","price":10000,"url":"https://www.91-img.com/pictures/xiaomi-mi-5s-mobile-phone-large-1.jpg"}]}'>
+            <li ng-repeat="d in data.mobiles|filter:search|orderBy:sort:changeOrder">
+                {{d.id}} {{d.name}} {{d.price}} <img src="{{d.url}}">
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>
