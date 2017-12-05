@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/factory.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+
+<body ng-app="myapp" ng-controller="shopctrl">
+    <div class="container">
+        <h1>Products in Cart</h1>
+        <ul>
+            <li ng-repeat="product in addedProducts">
+                {{product.id}} {{product.name}} {{product.price}} <img ng-src="{{product.url}}">
+            </li>
+        </ul>
+    </div>
+    <div class="container">
+
+        <table class="table table-bordered table-striped">
+            <tr ng-repeat="product in result">
+                <td ng-if="product.price>15000">2% Discount</td>
+
+                </h1>
+                <td ng-if="product.price<=15000">
+                    1% Discount
+                </td>
+                <td> {{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td><img ng-src="{{product.url}}"></td>
+                <td><button ng-click="addItToCart(product)" class="btn btn-info">Add to Cart</button></td>
+            </tr>
+        </table>
+
+        {{error}}
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+app.value("PRODUCT_URL","http://localhost:9999/products");

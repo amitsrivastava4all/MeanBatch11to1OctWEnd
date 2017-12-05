@@ -1,0 +1,31 @@
+{
+    "products": [{
+            "id": 1001,
+            "name": "Samsung Mobile",
+            "price": 20000,
+            "url": "http://www.samsung.com/in/microsite/galaxy-c9-pro/images/mobile1.png"
+
+        },
+        {
+            "id": 1002,
+            "name": "Apple Mobile",
+            "price": 40000,
+            "url": "https://www.imastudent.com/wp-content/uploads/2016/09/full-front-view.png"
+
+        },
+        {
+            "id": 1003,
+            "name": "LG Mobile",
+            "price": 12000,
+            "url": "https://5.imimg.com/data5/FM/BO/GLADMIN-12117779/lg-g3-500x500.png"
+
+        },
+        {
+            "id": 1004,
+            "name": "MI Mobile",
+            "price": 9000,
+            "url": "http://i01.appmifile.com/webfile/globalimg/zh/goods/mi_a1/top-pink.png"
+
+        }
+    ]
+}
